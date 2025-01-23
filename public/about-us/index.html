@@ -274,6 +274,9 @@
 			background-color: #ffffff !important;
 		}
 	</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 </head>
 
 <body data-rsssl=1
@@ -416,10 +419,13 @@
 							<!-- Social Sharing Toolkit v2.2 -->
 						</div>
 						<div class="clear"></div>
-						<video style="margin-top:5em;" width="640" height="360" controls>
-							<source src="/vid/003.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
+						<div style="position: relative; padding-top: 56.25%; overflow: hidden; width: 100%; max-width: 640px; margin: 5em auto;">
+							<video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
+								<source src="/vid/003.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+						
 					</div>
 
 				</div> <!-- end main content holder (#content/#full-width) -->

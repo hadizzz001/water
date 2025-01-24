@@ -410,55 +410,62 @@
 
 
 
-<form id="contactForm" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
-  <div style="margin-bottom: 15px;">
-    <label for="name" style="font-size: 16px;">Your Name:</label>
-    <input type="text" id="name" name="aname" required style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;">
-  </div>
+					<form id="contactForm" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+						<div style="margin-bottom: 15px;">
+						  <label for="name" style="font-size: 16px;">Your Name:</label>
+						  <input type="text" id="name" name="aname" required style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;">
+						</div>
+					  
+						<div style="margin-bottom: 15px;">
+						  <label for="email" style="font-size: 16px;">Your Email:</label>
+						  <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;">
+						</div>
+					  
+						<div style="margin-bottom: 15px;">
+						  <label for="message" style="font-size: 16px;">Your Message:</label>
+						  <textarea id="message" name="message" required style="width: 100%; height: 150px; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+						</div>
+					  
+						<div style="text-align: center;">
+						  <button type="submit" style="background-color: #002060; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px;">Submit</button>
+						</div>
+					  </form>
+					  
+					  <script>
+						document.getElementById("contactForm").addEventListener("submit", async function (event) {
+						  event.preventDefault(); // Prevent the default form submission
+					  
+						  const form = event.target;
+						  const formData = new FormData(form);
+					  
+						  try {
+							// Send POST request to the API
+							const response = await fetch("/api/sendEmail", {
+							  method: "POST",
+							  body: formData,
+							});
+					  
+							if (response.ok) {
+							  const result = await response.json();
+							  if (result.success) {
+								alert("Message sent successfully!");
+								form.reset(); // Clear the form after success
+							  } else {
+								alert("Failed to send the message. Please try again.");
+							  }
+							} else {
+							  alert("Failed to send the message. Please check your input and try again.");
+							}
+						  } catch (error) {
+							console.error("Error:", error);
+							alert("An error occurred. Please try again later.");
+						  }
+						});
+					  </script>
+					  
+					  
 
-  <div style="margin-bottom: 15px;">
-    <label for="email" style="font-size: 16px;">Your Email:</label>
-    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;">
-  </div>
-
-  <div style="margin-bottom: 15px;">
-    <label for="message" style="font-size: 16px;">Your Message:</label>
-    <textarea id="message" name="message" required style="width: 100%; height: 150px; padding: 10px; font-size: 16px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-  </div>
-
-  <div style="text-align: center;">
-    <button type="submit" style="background-color: #002060; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px;">Submit</button>
-  </div>
-</form>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Get form data
-    const form = event.target;
-    const formData = new FormData(form);
-
-    try {
-      // Send POST request to the API
-      const response = await fetch('https://waterandpools.com/api/sendEmail', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        alert('Message sent successfully!');
-        form.reset(); // Clear the form
-      } else {
-        alert('Failed to send the message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
-    }
-  });
-</script>
-
+ 
 				  
 				  
 			

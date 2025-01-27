@@ -308,7 +308,7 @@
 
 							@media screen and (max-width: 1000px) {
 								#logo-container {
-									margin-top: 8px;
+									margin-top: 18px !important;
 								}
 
 								.nav-menu ul {
@@ -324,6 +324,10 @@
 
 								.slider-active.fixed-header #header {
 									top: -5em !important;
+								}
+
+								.mobile-nav {
+									margin-top: 30px;
 								}
 							}
 						</style>
@@ -399,7 +403,7 @@
 
 			<div>
 
-				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+				<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel"
 					data-bs-interval="2000" data-bs-wrap="true" style="margin-top: 4em;">
 					<div class="carousel-inner">
 						<!-- Slide 1 -->
@@ -602,7 +606,7 @@
 
 
 		<div class="footer-bottom">
-			<div class="section-boxed">
+			<div class="section-boxed" id="secMob">
 
 				<div class="footer-nav">
 				</div>
@@ -783,6 +787,9 @@
 </script>
 
 
+
+
+
 <style>
 	.nav-menu ul li a {
 		text-transform: initial !important;
@@ -790,6 +797,61 @@
 
 	#slider-container {
 		margin-top: 0px !important;
+	}
+</style>
+
+<style>
+	.nav-menu ul {
+		margin-top: 8px;
+	}
+
+	dl,
+	ol,
+	ul {
+		margin-bottom: 0rem !important;
+		padding-left: 0rem !important;
+	}
+
+	#secMob {
+		margin-top: -1em;
+	}
+
+	@media screen and (max-width: 1000px) {
+		#logo-container {
+			margin-top: 8px;
+		}
+
+		.nav-menu ul {
+			margin-top: 8px;
+		}
+
+		dl,
+		ol,
+		ul {
+			margin-bottom: 2rem !important;
+			padding-left: 2rem !important;
+		}
+
+
+
+		#secMob {
+			display: inline-flex
+		}
+
+		.social-icons {
+			display: flex;
+		}
+
+		.footer-nav,
+		.copyrights {
+			display: block;
+			float: none;
+			margin: 0px;
+			text-align: center;
+			line-height: 15px;
+			flex-flow: nowrap;
+			display: flex;
+		}
 	}
 </style>
 
@@ -805,6 +867,7 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
+	z-index: 999999999999999999999;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     text-decoration: none;">
 	<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"

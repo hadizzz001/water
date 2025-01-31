@@ -15,7 +15,7 @@ export async function GET(req) {
     // Fetch the image from the remote server
     const response = await fetch(decodeURIComponent(imageUrl), {
       headers: {
-        "User-Agent": "Mozilla/5.0", // Some CDNs block requests without a user-agent
+        "User-Agent": "Mozilla/5.0",
       },
     });
 
@@ -34,7 +34,9 @@ export async function GET(req) {
       status: 200,
       headers: {
         "Content-Type": contentType || "image/png",
-        "Cache-Control": "public, max-age=3600, immutable",
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
       },
     });
   } catch (error) {
